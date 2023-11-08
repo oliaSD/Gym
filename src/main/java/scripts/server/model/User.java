@@ -2,10 +2,10 @@ package scripts.server.model;
 
 import jakarta.persistence.Entity;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -14,7 +14,7 @@ import jakarta.persistence.Id;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
-@ToString(callSuper = true, exclude = {"password"})
+@AllArgsConstructor(access =  AccessLevel.PUBLIC)
 public class User {
 
     @Id  
@@ -26,29 +26,5 @@ public class User {
     private String email;
 
     private String password;
- 
 
-    // public Integer getId() {
-    //     return id;
-    // }
-
-    // public String getName(){
-    //     return name;
-    // }
-
-    // public String getEmail(){
-    //     return email;
-    // }
-    
-    // public void setName(String name){
-    //     this.name = name;
-    // }
-
-    // public void setEmail(String email){
-    //     this.email = email;
-    // }
-
-    // public void  setId(Integer id){
-    //     this.id = id;
-    // }
 }

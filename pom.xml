@@ -11,27 +11,12 @@
       <maven.compiler.source>17</maven.compiler.source>
       <maven.compiler.target>17</maven.compiler.target>
   </properties>
-  <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-resources-plugin</artifactId>
-    <version>3.1.0</version>
-</plugin>
+ 
 <dependencies>
-
   <dependency>
     <groupId>org.springframework.data</groupId>
     <artifactId>spring-data-jpa</artifactId>
     <version>3.1.5</version>
-  </dependency>
-
-
-
-
-
-  <dependency>
-    <groupId>jakarta.persistence</groupId>
-    <artifactId>jakarta.persistence-api</artifactId>
-    <version>3.2.0-B01</version>
   </dependency>
   <dependency>
     <groupId>mysql</groupId>
@@ -56,28 +41,12 @@
    <version>3.1.5</version>
    <type>pom</type>
 </dependency>
-  <dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring</artifactId>
-    <version>5.3.30</version>
-    <type>pom</type>
-  </dependency>
 <dependency>
 		<groupId>org.projectlombok</groupId>
 		<artifactId>lombok</artifactId>
 		<version>1.18.30</version>
 		<scope>provided</scope>
 	</dependency>
-<dependency> 
-    <groupId>org.hibernate</groupId> 
-    <artifactId>hibernate-core</artifactId> 
-    <version>4.1.4.Final </version> 
-</dependency>
-<dependency> 
-    <groupId>org.hibernate</groupId> 
-    <artifactId>hibernate-entitymanager</artifactId> 
-    <version>5.2.3.Final</version> 
-</dependency>
 </dependencies>
   
 
