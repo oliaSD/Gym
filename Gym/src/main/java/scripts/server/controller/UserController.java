@@ -15,7 +15,7 @@ import scripts.server.model.User;
 
 
 @RestController
-@RequestMapping(path="/demo")
+@RequestMapping(path="/user")
 public class UserController {
 
 
@@ -41,6 +41,14 @@ public class UserController {
     @GetMapping(path="/all")
     public @ResponseBody Iterable<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    @GetMapping(path="/delete")
+    public @ResponseBody String deleteUserById(@RequestParam Integer Id) {
+        
+        userRepository.deleteById(Id);
+
+        return "User delete";
     }
 
 
