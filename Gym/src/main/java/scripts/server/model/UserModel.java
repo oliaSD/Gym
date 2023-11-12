@@ -1,5 +1,8 @@
 package scripts.server.model;
 
+
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -15,10 +18,11 @@ import jakarta.persistence.Id;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor(access =  AccessLevel.PUBLIC)
-public class User {
+public class UserModel {
 
     @Id  
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private   Integer id;
 
     private String name;
@@ -26,5 +30,6 @@ public class User {
     private String email;
 
     private String password;
+
 
 }

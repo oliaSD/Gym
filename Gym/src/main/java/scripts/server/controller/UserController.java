@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import scripts.server.database.UserRepository;
-import scripts.server.model.User;
+import scripts.server.model.UserModel;
 
 
-@RestController
+@Controller
 @RequestMapping(path="/user")
 public class UserController {
 
@@ -29,17 +29,17 @@ public class UserController {
       , @RequestParam String password) {
 
 
-        User n = new User();
+        UserModel n = new UserModel();
         n.setEmail( email);
         n.setName(name);
         n.setPassword(password);
         userRepository.save(n);
-        return "Saved";
+        return "index";
     }
 
 
     @GetMapping(path="/all")
-    public @ResponseBody Iterable<User> getAllUsers() {
+    public @ResponseBody Iterable<UserModel> getAllUsers() {
         return userRepository.findAll();
     }
 
@@ -48,7 +48,7 @@ public class UserController {
         
         userRepository.deleteById(Id);
 
-        return "User delete";
+        return "Index";
     }
 
 
