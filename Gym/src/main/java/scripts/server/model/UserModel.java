@@ -18,12 +18,8 @@ import jakarta.persistence.Id;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor(access =  AccessLevel.PUBLIC)
-public class UserModel {
+public class UserModel extends AbstractEntity{
 
-    @Id  
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private   Integer id;
 
     private String name;
 
@@ -31,5 +27,5 @@ public class UserModel {
 
     private String password;
 
-
+    private UserRole userRole;
 }

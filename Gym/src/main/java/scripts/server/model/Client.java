@@ -1,15 +1,13 @@
 package scripts.server.model;
 
-import org.hibernate.annotations.ForeignKey;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.ConstraintMode;
+import java.util.ArrayList;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,24 +20,16 @@ import lombok.AccessLevel;
 @Setter
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor(access =  AccessLevel.PUBLIC)
-public class Client {
+public class Client extends Man{
     
 
-    @Id  
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private   Integer id;
+    // @Column(name = "user_model_id")
+    // private Integer userModelId;
 
-    @Column(name = "user_model_id")
-    private Integer userModelId;
-    
-    @OneToOne
-    @JoinColumn(name = "user_model_id", 
-       referencedColumnName = "user_id", 
-       insertable = false, updatable = false, 
-       foreignKey = @jakarta.persistence
-         .ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
-    private UserModel userModel;
+  
 
+    private TypeOfBody typeOfBody;
 
-
+    @ManyToMany
+    private ArrayList<GroupTraining> groupsEmployees;
 }

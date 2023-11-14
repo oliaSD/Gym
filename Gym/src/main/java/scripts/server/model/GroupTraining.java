@@ -1,9 +1,6 @@
 package scripts.server.model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-
-import javax.annotation.processing.Generated;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,8 +8,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
@@ -25,22 +20,25 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(
-     uniqueConstraints = 
-     @UniqueConstraint(columnNames = {"gym_number"})
+@Table( uniqueConstraints 
+        =  @UniqueConstraint(columnNames = {"group_number"})
 )
-public class Gym extends AbstractEntity{
+public class GroupTraining extends AbstractEntity{
     
 
-    
-
-    @Column(name ="gym_number")
-    private String gymNumber;
-    
    
 
-    // @ManyToMany
-    // private ArrayList<ContainsGymApparatus> trainingApparatus;
-    //@ManyToMany
-    //private HashMap<TrainingApparatus,Integer> trainingApparatus;
-} 
+    @Column(name = "group_number")
+    private String groupNumber;
+
+
+    private GroupType groupType;
+
+    private GroupAgeType groupAgeType;
+
+    private GroupSkillType gropSkillType;
+
+    @ManyToMany
+    private ArrayList<Client> clients;
+
+}

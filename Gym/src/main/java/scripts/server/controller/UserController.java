@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import scripts.server.database.UserRepository;
+import scripts.server.database.Service.UserService;
 import scripts.server.model.UserModel;
 
 
@@ -20,7 +20,7 @@ public class UserController {
 
 
     @Autowired 
-    private UserRepository userRepository;
+    private UserService userRepository;
 
 
     @PostMapping(path="/add")
