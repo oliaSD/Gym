@@ -1,5 +1,6 @@
 package scripts.server.database.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.swing.text.html.parser.Entity;
@@ -17,27 +18,7 @@ public class UserService extends AbstractService<UserModel, UserRepository> {
         super(repository);
     }
 
-    @Override
-    public Optional<UserModel> save(UserModel entity) {
-        return Optional.of(this.repository.save(entity));
+    public List<UserModel> findByNameAndPassword(String name, String password){
+        return repository.findByNameAndPassword(name,password);
     }
-
-    @Override
-    public Iterable<UserModel> findAll() {
-        // TODO Auto-generated method stub
-        return this.repository.findAll();
-    }
-
-    @Override
-    public Optional<UserModel> findById(Integer id) {
-        // TODO Auto-generated method stub
-        return this.repository.findById(id);
-    }
-
-    @Override
-    public void deleteById(Integer id) {
-        // TODO Auto-generated method stub
-        this.repository.deleteById(id);
-    }
-    
 }

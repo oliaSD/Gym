@@ -27,7 +27,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Table(
      uniqueConstraints = 
-     @UniqueConstraint(columnNames = {"gym_number"})
+     @UniqueConstraint(columnNames = {"gym_number","gym_address"})
 )
 public class Gym extends AbstractEntity{
     
@@ -37,6 +37,8 @@ public class Gym extends AbstractEntity{
     @Column(name ="gym_number")
     private String gymNumber;
     
+    @Column(name = "gym_address")
+    private String address;
    
 
     // @ManyToMany

@@ -24,9 +24,7 @@ public class UserController {
 
 
     @PostMapping(path="/add")
-    public @ResponseBody String addNewUser (@RequestParam String name
-      , @RequestParam String email
-      , @RequestParam String password) {
+    public @ResponseBody String addNewUser (@RequestParam String name, @RequestParam String password, @RequestParam String email) {
 
 
         UserModel n = new UserModel();
@@ -52,5 +50,8 @@ public class UserController {
     }
 
 
+    public record UserShortModel(String name, String password, String email){
+
+    }
 
 }

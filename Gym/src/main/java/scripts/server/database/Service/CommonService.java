@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import scripts.server.model.AbstractEntity;
 
+
 public interface CommonService<E extends AbstractEntity> {
     
     Optional<E> save(E entity);

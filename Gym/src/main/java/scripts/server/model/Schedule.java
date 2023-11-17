@@ -32,5 +32,5 @@ public class Schedule extends AbstractEntity{
     private GroupTraining group;
 
     @ManyToOne
-    private Gym gym;
+    private TrainingRoom trainingRoom;
 }

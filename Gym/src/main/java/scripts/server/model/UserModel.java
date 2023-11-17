@@ -2,16 +2,20 @@ package scripts.server.model;
 
 
 
-import jakarta.persistence.Column;
+import java.util.Set;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.ManyToMany;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import scripts.server.model.enums.StatusActivate;
+import scripts.server.model.enums.UserRole;
+
 
 @Entity
 @Getter
@@ -27,5 +31,9 @@ public class UserModel extends AbstractEntity{
 
     private String password;
 
-    private UserRole userRole;
+    private StatusActivate statusActivate;
+
+
+    @Enumerated(EnumType.ORDINAL)
+    private Set<UserRole> userRole;
 }
