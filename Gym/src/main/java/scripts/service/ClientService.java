@@ -17,9 +17,9 @@ public class ClientService {
     private final UserRepository userRepository;
     private final ClientRepository clientRepository;
 
-    public void createNewClient(Client client) {
+    public Client createNewClient(Client client) {
         userRepository.save(client.getUserModel());
-        clientRepository.save(client);
+        return clientRepository.save(client);
     }
 
     public ResponseEntity<?> deleteClientById(Integer id) {
@@ -39,6 +39,18 @@ public class ClientService {
             return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(), "$Client not found"),
                     HttpStatus.BAD_REQUEST);
         }
-        return ResponseEntity.ok(client);
+        return ResponseEntity.ok(client.get());
+    }
+
+    public ResponseEntity<?> getClientIdByUserId(Integer id) {
+        return ResponseEntity.ok(clientRepository.findByUserModelId(id).get());
+    }
+
+    public ResponseEntity<?> saveClient(Client client) {
+        var user = clientRepository.findById(client.getId());
+        client.setUserModel(user.get().getUserModel());
+        client.setGroupTrainings(user.get().getGroupTrainings());
+        var clientSave = clientRepository.save(client);
+        return ResponseEntity.ok(clientSave);
     }
 }

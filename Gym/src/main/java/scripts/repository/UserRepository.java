@@ -11,4 +11,6 @@ import scripts.model.UserModel;
 public interface UserRepository extends CrudRepository<UserModel, Integer> {
 
     public List<UserModel> findByName(String name);
+
+  
 }

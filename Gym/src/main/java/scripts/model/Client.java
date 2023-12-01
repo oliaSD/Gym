@@ -30,3 +30,4 @@ public class Client extends Man{
     @ManyToMany(cascade = {CascadeType.ALL}, mappedBy =  "clients")
     private Set<GroupTraining> groupTrainings = new HashSet<GroupTraining>();
 }
+    

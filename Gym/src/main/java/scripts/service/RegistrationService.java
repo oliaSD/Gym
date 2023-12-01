@@ -1,5 +1,7 @@
 package scripts.service;
 
+import java.util.Set;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -12,7 +14,10 @@ import scripts.dto.RegistrationUserDto;
 import scripts.dto.UserDTO;
 import scripts.model.Client;
 import scripts.model.Employee;
+import scripts.model.GroupTraining;
 import scripts.model.UserModel;
+import scripts.model.enums.GroupType;
+import scripts.repository.GroupRepository;
 import scripts.utils.ConverterDTOtoModel;
 
 @Service
@@ -22,6 +27,7 @@ public class RegistrationService {
     private final UserService userService;
     private final ClientService clientService;
     private final EmployeeService employeeService;
+    private final GroupRepository groupRepository;
 
 
 
@@ -31,10 +37,14 @@ public class RegistrationService {
         }
         UserModel user = ConverterDTOtoModel.fromRegistationUserDTOToUserModel(registrationUserDto);
         Client client = ConverterDTOtoModel.fromManDTOToClient(manDTO);
+        GroupTraining group = new GroupTraining();
         BCryptPasswordEncoder ds = new BCryptPasswordEncoder();
         user.setPassword(ds.encode(user.getPassword()));
         client.setUserModel(userService.createNewUser(user));
-        clientService.createNewClient(client);
+        group.setClients(Set.of(clientService.createNewClient(client)));
+        group.setGroupType(GroupType.Solo);
+        group.setGroupNumber(user.getName()+"Solo");
+        groupRepository.save(group);
         return ResponseEntity.ok(new UserDTO(user.getId(), user.getName(), user.getEmail()));
     }
 

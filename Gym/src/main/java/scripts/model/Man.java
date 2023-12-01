@@ -3,6 +3,8 @@ package scripts.model;
 
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.OneToOne;
 import lombok.AccessLevel;
@@ -25,6 +27,7 @@ public abstract class Man  extends AbstractEntity{
     //    insertable = false, updatable = false, 
     //    foreignKey = @jakarta.persistence
     //      .ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
+     @JsonIgnore
     protected UserModel userModel;
 
     protected String firstName;

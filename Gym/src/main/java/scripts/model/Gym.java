@@ -42,6 +42,7 @@ public class Gym extends AbstractEntity{
 
    
     @OneToMany
+    
     private Collection<TrainingRoom> trainingRooms;
     // @ManyToMany
     // private ArrayList<ContainsGymApparatus> trainingApparatus;

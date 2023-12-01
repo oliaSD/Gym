@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -63,6 +64,11 @@ public class UserService  implements UserDetailsService{
         roleRepository.findAll().forEach(roles::add);
         //userModel.setUserRole(userModel.getUserRole().stream().distinct().filter(x->roles.contains(x)).collect(Collectors.toList()));
         return userRepository.save(userModel); 
+    }
+
+    public ResponseEntity<?> getIdByName(String name) {
+        var user = userRepository.findByName(name).get(0);
+        return ResponseEntity.ok(user.getId());
     }
 
 }

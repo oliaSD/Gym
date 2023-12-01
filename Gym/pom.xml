@@ -161,8 +161,8 @@
 	
 
   <build>
-    <sourceDirectory>src/main/java</sourceDirectory>
-    <scriptSourceDirectory>src/main/java</scriptSourceDirectory>
+    <sourceDirectory>src/main</sourceDirectory>
+    <scriptSourceDirectory>src/main</scriptSourceDirectory>
     <testSourceDirectory>src/test/java</testSourceDirectory>
     <outputDirectory>target/classes</outputDirectory>
     <testOutputDirectory>target/test-classes</testOutputDirectory>

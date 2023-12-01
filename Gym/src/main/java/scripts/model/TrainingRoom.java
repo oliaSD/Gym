@@ -4,6 +4,8 @@ package scripts.model;
 
 import java.util.Collection;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -28,6 +30,7 @@ public class TrainingRoom  extends AbstractEntity{
     private TypeOfRoom typeOfRoom;
 
     @ManyToOne
+    @JsonIgnore
     private Gym gym;    
 
     @OneToMany
