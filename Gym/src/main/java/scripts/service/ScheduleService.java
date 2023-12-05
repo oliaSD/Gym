@@ -25,21 +25,16 @@ public class ScheduleService {
     //private final ClientRepository clientRepository;
 
     public ResponseEntity<?> getScheduleClient(Integer id){
-        // var client = clientRepository.findById(id);
-        // if(!client.isPresent()){
-        //     return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(), "$Client schedule not found"),
-        //             HttpStatus.BAD_REQUEST);
+        // var group = groupRepository.findByClientsId(id);
+        // if(group.isEmpty()){
+        //      return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(), "$Grop clint's not found"),
+        //             HttpStatus.NO_CONTENT);
         // }
-        var group = groupRepository.findByClientsId(id);
-        if(group.isEmpty()){
-             return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(), "$Grop clint's not found"),
-                    HttpStatus.NO_CONTENT);
-        }
-        var schedule = new ArrayList<Schedule>();
-        group.forEach((e)-> {
-            scheduleRepository.findByGroupId(e.getId()).forEach(schedule::add);
-        });
-        return ResponseEntity.ok(schedule);
+        // var schedule = new ArrayList<Schedule>();
+        // group.forEach((e)-> {
+        //     scheduleRepository.findByGroupId(e.getId()).forEach(schedule::add);
+        // });
+        return ResponseEntity.ok(scheduleRepository.findByGroupClientsId(id));
 
     }
 

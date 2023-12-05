@@ -15,4 +15,6 @@ public interface ClientRepository  extends CrudRepository<Client, Integer> {
 
 
     public Optional<Client> findByUserModelId(Integer id);
+
+    public Optional<Client> findByUserModelName(String name);
 }

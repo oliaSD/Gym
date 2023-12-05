@@ -66,4 +66,8 @@ public class ClientController {
         return clientService.getClient(id);
     }
 
+    @GetMapping("/getClientIdByUserName")
+    public ResponseEntity<?> getClientIdByUserName(@RequestParam String userName){
+        return clientService.getClientIdByUserName(userName);
+    }
 }

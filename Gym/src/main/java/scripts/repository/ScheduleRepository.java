@@ -22,4 +22,6 @@ public interface ScheduleRepository  extends CrudRepository<Schedule, Integer>{
 
         public Collection<Schedule>  findByGroupId(Integer id);
 
+        public Collection<Schedule> findByGroupClientsId(Integer id);
+
 }

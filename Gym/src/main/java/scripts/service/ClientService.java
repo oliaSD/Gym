@@ -53,4 +53,8 @@ public class ClientService {
         var clientSave = clientRepository.save(client);
         return ResponseEntity.ok(clientSave);
     }
+
+    public ResponseEntity<?> getClientIdByUserName(String userName) {
+        return ResponseEntity.ok(clientRepository.findByUserModelName(userName).get());
+    }
 }
