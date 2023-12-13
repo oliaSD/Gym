@@ -39,4 +39,6 @@ public abstract class Man  extends AbstractEntity{
     protected Date birthDay;
 
     protected Gender gender;
+
+    protected String pathToAvatar;
 }

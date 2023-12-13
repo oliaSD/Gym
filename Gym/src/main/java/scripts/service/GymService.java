@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.imageio.ImageIO;
 
@@ -18,7 +17,6 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import scripts.dto.AppError;
 import scripts.model.Gym;
-import scripts.model.UserRole;
 import scripts.repository.GymRepository;
 
 @Service

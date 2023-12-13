@@ -28,4 +28,15 @@ public class GroupController {
         return groupService.getGroupSchedule(id);
     }
 
+
+    @GetMapping("/addClientToGroup")
+    public ResponseEntity<?> addClientToGroup(@RequestParam Integer clientId, @RequestParam Integer groupId){
+        return groupService.addClientToGroup(clientId,groupId);
+    }
+
+    @GetMapping("/deleteClientGroup")
+    public ResponseEntity<?> deleteClientFromGroup(@RequestParam Integer clientId, @RequestParam Integer groupId){
+        return groupService.deleteClientFromGroup(clientId,groupId);
+    }
+
 }

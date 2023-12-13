@@ -24,18 +24,11 @@ import scripts.model.enums.GroupType;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table( uniqueConstraints 
-        =  @UniqueConstraint(columnNames = {"group_number"}),
-    name = "GroupTraining"
-)
-public class GroupTraining extends AbstractEntity{
-    
-
-   
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = { "group_number" }), name = "GroupTraining")
+public class GroupTraining extends AbstractEntity {
 
     @Column(name = "group_number")
     private String groupNumber;
-
 
     private GroupType groupType;
 
@@ -43,13 +36,8 @@ public class GroupTraining extends AbstractEntity{
 
     private GroupSkillType gropSkillType;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
-    // @JoinTable(
-    //     name = "Client"
-    //     ,joinColumns  = {}
-    //     ,inverseJoinColumns  = {}
-    // )
-     @JsonIgnore
-    private Set<Client> clients =  new HashSet<Client>();
+    @JsonIgnore
+    @ManyToMany(cascade = { CascadeType.ALL })
+    private Set<Client> clients = new HashSet<Client>();
 
-}           
+}

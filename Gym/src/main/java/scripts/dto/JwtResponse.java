@@ -1,5 +1,9 @@
 package scripts.dto;
 
+
+import java.util.Collection;
+
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -8,4 +12,6 @@ import lombok.Data;
 public class JwtResponse {
     
     private String jwtToken;
+
+    private Collection<?> roles; 
 }
